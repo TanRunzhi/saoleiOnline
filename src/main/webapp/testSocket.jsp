@@ -14,10 +14,11 @@
   <style type="text/css">
 
   </style>
-  <script src="resources/js/sockjs.min.js"></script>
+  <script src="/resources/js/sockjs.min.js"></script>
   <script type="text/javascript">
     var ws = null;
     var url = null;
+    var baseUrl = "localhost:8088";
     var transports = [];
     function setConnected(connected) {
       document.getElementById('connect').disabled = connected;
@@ -25,17 +26,20 @@
       document.getElementById('echo').disabled = !connected;
     }
     function connect() {
-      if (!url) {
-        log('Select whether to use W3C WebSocket or SockJS');
-        return;
-      }
-      //ws = (url.indexOf('sockjs') != -1) ?new SockJS(url, undefined, {protocols_whitelist: transports}) : new WebSocket(url);
 
-        ws = new SockJS("http://localhost:8081/sockjs/websck");
-      //websocket = new SockJS("http://localhost:8084/SpringWebSocketPush/sockjs/websck");
+      var ws;
+
+      if ('WebSocket' in window) {
+        ws = new WebSocket("ws://" + baseUrl+ "/websocket.html");
+      } else if ('MozWebSocket' in window) {
+        // ws = new MozWebSocket("ws://" + baseUrl+ "/websocket.html");
+      } else {
+        ws = new SockJS("http://" + baseUrl+ "/sockjs/websocket.html");
+      }
+
       ws.onopen = function () {
         setConnected(true);
-        //log('Info: connection opened.');
+        log('Info: connection opened.');
       };
       ws.onmessage = function (event) {
         log('Received: ' + event.data);

@@ -175,4 +175,6 @@
       </list>
     </property>
   </bean>
+
+  <import resource="spring-websocket.xml"/>
 </beans>
