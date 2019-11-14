@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+  <Properties>
+    <Property name="log-path">/soft/gwideal/logs/cnArchives</Property>
+  </Properties>
+  <appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="[cnArchives] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    <RollingFile name="cnArchives_console" fileName="${log-path}/cnArchives_console.log" filePattern="${log-path}/cnArchives_console-%d{yyyy-MM-dd}-%i.log.gz">
+      <PatternLayout pattern="[cnArchives] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %-5level %logger{36} - %msg%n"/>
+      <SizeBasedTriggeringPolicy size="50 MB" />
+    </RollingFile>
+  </appenders>
+  <loggers>
+    <root level="debug">
+      <appender-ref ref="Console"/>
+      <appender-ref ref="cnArchives_console"/>
+    </root>
+    <logger name="org.hibernate" level="error" additivity="false">
+      <appender-ref ref="Console"/>
+    </logger>
+    <logger name="com.gwideal.core.security.XssHttpServletRequestWrapper"
+            level="error" additivity="false">
+      <appender-ref ref="Console"/>
+    </logger>
+    <logger name="com.alibaba.druid.pool.PreparedStatementPool"
+            level="error" additivity="false">
+      <appender-ref ref="Console"/>
+    </logger>
+    <logger name="net.sf.ehcache"
+            level="error" additivity="false">
+      <appender-ref ref="Console"/>
+    </logger>
+    <logger name="com.gwideal.core.interceptor.MethodCacheInterceptor"
+            level="error" additivity="false">
+      <appender-ref ref="Console"/>
+    </logger>
+    <logger name="com.gwideal.uim.sso.AuthSSOImpl"
+            level="error" additivity="false">
+      <appender-ref ref="Console"/>
+    </logger>
+  </loggers>
+</configuration>

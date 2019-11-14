@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+
+  <!-- 线程执行器配置，用于任务注册 -->
+  <bean id="executor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+    <property name="corePoolSize" value="10"/>
+    <property name="maxPoolSize" value="100"/>
+    <property name="queueCapacity" value="500"/>
+  </bean>
+
+  <!-- 业务对象 -->
+  <bean id="timeTask" class="com.gwideal.task.TimeTask"/>
+
+  <!-- 调度业务 -->
+
+  <!--享受政策过期检测更新处理-->
+  <bean id="timeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="timeTask"/>
+    <property name="targetMethod" value="timeJob"/>
+  </bean>
+  <bean id="expiredTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    <property name="jobDetail" ref="timeJob"/>
+    <property name="cronExpression" value="0 30 1 * * ?"/>
+  </bean>
+
+ 
+
+
+  <!-- 设置调度 -->
+  <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref bean="expiredTrigger"/>
+        <!--<ref bean="autoBackupsTrigger"/>-->
+      </list>
+    </property>
+    <property name="taskExecutor" ref="executor"/>
+  </bean>
+
+
+
+  <!-- 新长宁档案系统自动备份设置 start -->
+  <!-- com.gwideal.biz.manager.BackupMngImpl.autoBackups() -->
+ <!-- <bean id="autoBackupsJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="backupMng"/>
+    <property name="targetMethod" value="autoBackups"/>
+  </bean>
+  <bean id="autoBackupsTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    <property name="jobDetail" ref="autoBackupsJob"/>
+    <property name="cronExpression" value="0 30 1 * * ?"/>
+  </bean>-->
+  <!-- 新长宁档案系统自动备份设置 end -->
+</beans>
