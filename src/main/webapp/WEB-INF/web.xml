@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-  <display-name>cnarchives</display-name>
+  <display-name>sl</display-name>
   <!--使用Spring中的过滤器解决在请求和应答中的中文乱码问题-->
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
@@ -58,7 +58,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>*.htm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>*.html</url-pattern>
   </servlet-mapping>
 
   <listener>

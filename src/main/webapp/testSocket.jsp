@@ -1,10 +1,11 @@
 <%--
+&lt;%&ndash;
   Created by IntelliJ IDEA.
   User: fan_jinliang
   Date: 2019/2/21
   Time: 10:16
   To change this template use File | Settings | File Templates.
---%>
+&ndash;%&gt;
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE htmlPUBLIC"-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -133,3 +134,4 @@
 </div>
 </body>
 </html>
+--%>

@@ -29,7 +29,7 @@
   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
       p:maxUploadSize="10240000" p:defaultEncoding="UTF-8" p:resolveLazily="true" />
 
-  <mvc:resources location="/resources/**/" mapping="/resources/**"/>
+  <mvc:resources mapping="/resources/**" location="/resources/"/>
 
   <mvc:interceptors>
     <ref bean="tokenInterceptor"/>

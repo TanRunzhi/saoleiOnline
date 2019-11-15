@@ -40,5 +40,10 @@
             level="error" additivity="false">
       <appender-ref ref="Console"/>
     </logger>
+    <!-- -->
+    <logger name="org.springframework"
+            level="info" additivity="false">
+      <appender-ref ref="Console"/>
+    </logger>
   </loggers>
 </configuration>

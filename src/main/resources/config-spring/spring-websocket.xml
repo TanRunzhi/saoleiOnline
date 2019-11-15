@@ -12,11 +12,17 @@
 
   <websocket:handlers>
     <websocket:mapping path="/websocket.html" handler="myHandler"/>
+    <websocket:handshake-interceptors>
+       <bean class="com.gwideal.websocket.HandshakeInterceptor" />
+    </websocket:handshake-interceptors>
   </websocket:handlers>
 
   <!--  注册 sockJS -->
   <websocket:handlers>
     <websocket:mapping path="/sockjs/websocket.html" handler="myHandler"/>
+    <websocket:handshake-interceptors>
+      <bean class="com.gwideal.websocket.HandshakeInterceptor" />
+    </websocket:handshake-interceptors>
     <websocket:sockjs/>
   </websocket:handlers>
 </beans>
