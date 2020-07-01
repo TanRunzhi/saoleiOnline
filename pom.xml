@@ -269,7 +269,7 @@
     <druid.version>1.1.12</druid.version>
     <poi.version>4.0.0</poi.version>
     <ant.version>1.10.5</ant.version>
-    <quartz.version>2.3.0</quartz.version>
+    <quartz.version>2.3.2</quartz.version>
     <commons.fileupload>1.4</commons.fileupload>
     <commons.io>2.6</commons.io>
     <commons.net>3.6</commons.net>
