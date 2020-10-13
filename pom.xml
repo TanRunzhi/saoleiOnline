@@ -247,7 +247,7 @@
     <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
     <maven.version.plugin.version>2.7</maven.version.plugin.version>
     <jdk.version>1.8</jdk.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
     <servlet.version>4.0.1</servlet.version>
     <jackson.version>2.9.7</jackson.version>
     <!-- hibernate related-->
