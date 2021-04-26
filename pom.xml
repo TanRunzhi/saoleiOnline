@@ -271,7 +271,7 @@
     <ant.version>1.10.5</ant.version>
     <quartz.version>2.3.0</quartz.version>
     <commons.fileupload>1.4</commons.fileupload>
-    <commons.io>2.6</commons.io>
+    <commons.io>2.7</commons.io>
     <commons.net>3.6</commons.net>
     <commons.lang>2.6</commons.lang>
     <commons.logging>1.2</commons.logging>
