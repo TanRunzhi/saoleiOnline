@@ -263,7 +263,7 @@
     <cxf.version>3.2.7</cxf.version>
     <jdom2.version>2.0.6</jdom2.version>
     <mail.version>1.4.7</mail.version>
-    <fastjson.version>1.2.51</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <itext.version>5.5.12</itext.version>
     <jsoup.version>1.10.3</jsoup.version>
     <druid.version>1.1.12</druid.version>
