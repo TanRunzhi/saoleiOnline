@@ -279,7 +279,7 @@
     <lombok.version>1.18.4</lombok.version>
     <freemarker.version>2.3.28</freemarker.version>
     <commons-httpclient>3.1</commons-httpclient>
-    <mysql.version>8.0.16</mysql.version>
+    <mysql.version>8.0.28</mysql.version>
   </properties>
   <build>
     <plugins>
